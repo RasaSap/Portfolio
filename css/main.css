@@ -107,61 +107,148 @@ body * {
 
 
 /* STATISTICS and SERVICE OFFERS */
+.cards-list {
+    display: inline-block;
+    width: 100%;
+}
+    .cards-list > .card {
+        display: inline-block;
+        float: left;
+        margin-right: 30px;
+        width: calc( (100% - 3*30px) / 4 );
+        padding: 60px 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        text-align: center;
+        background-color: var(--color-secondary-light);
+        word-break: break-word;
+    }
+        .cards-list > .card > i {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            line-height: 80px;
+            font-size: 32px;
+            background-color: #DFE6F4;
+            color: #585A5C;
+            border: 2px solid var(--color-secondary);
+            border-radius: 50%;
+        }
+        .cards-list > .card > .number {
+            display: inline-block;
+            width: 100%;
+            line-height: 40px;
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--color-black);
+        }
+        .cards-list > .card > .title {
+            display: inline-block;
+            width: 100%;
+            line-height: 28px;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--color-black);
+            text-transform: uppercase;
+        }
+        .cards-list > .card:last-child {
+            margin-right: 0;
+        }
 
 
 
 /* SKILLS */
 
-body > #skills > .container > .left{
-display: inline-block;
-width: 45%;
-float: left;
-margin-top: 50px;
-padding-right: 15px;
-padding-left: 15px;
-}
-
-body > #skills > .container > .left > p{
+#skills > .container > .left {
     display: inline-block;
-    width: 100%;
+    width: 45%;
     float: left;
-    font-size: 14px;
-    color: #777;
-    margin-top: 20px;
-}
-
-body > #skills > .container > .right{
-display: inline-block;
-width: 55%;
-float: left;
-padding-right: 15px;
-padding-left: 15px;
-}
-
-body > #skills > .container > .right > .progress-bar{
+    margin-top: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
+    }
+    
+    #skills > .container > .left > p {
+        display: inline-block;
+        width: 100%;
+        float: left;
+        font-size: 14px;
+        color: #777;
+        margin-top: 20px;
+    }
+    
+#skills > .container > .right {
     display: inline-block;
-    width: 100%;
-    margin: 20px 0;
+    width: 55%;
+    float: left;
+    padding-right: 15px;
+    padding-left: 15px;
 }
-body > #skills > .container > .right > .progress-bar > .texts{
-     display: inline-block;
-     width: 100%;
-     margin-bottom: 10px;
-     font-weight:bold;
-     font-size: 16px;
-     line-height: 20px;
- }
-        body > #skills > .container > .right > .progress-bar > .texts > .title{
+    .progress-bar {
+        display: inline-block;
+        width: 100%;
+    }
+        .progress-bar > .title {
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 20px;
             display: inline-block;
-            float: left;           
+            float: left;
+        } 
+        .progress-bar > .bar {
+            display: inline-block;
+            width: 100%;
+            height: 20px;
+            border: 1px solid #e0e0e0;
+            background: transparent;
+            border-radius: 50px;
+            padding: 5px 8px;
+            margin-bottom: 20px;
         }
-        body > #skills > .container > .right > .progress-bar > .texts > .value{
-            position: absolute;
-            bottom: 20px;
-            right: -15px;
-        }
+            .progress-bar > .bar > .value {
+                display: inline-block;
+                width: 100%;
+                height: 10px;
+                float: left;
+                background-color: #FFF;
+            }
+                .progress-bar > .bar > .value > .loading-part {
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #90ACD1;
+                    animation-name: progress_bar_loading;
+                    animation-duration: 2s;
+                    animation-iteration-count: 1;
+            }
+               
+                        .progress-bar > .bar > .value > .loading-part > .vertical-line {
+                            width: 1px;
+                            height: 27px;
+                            float: right;
+                            margin-top: -6px;
+                            background: #90acd1;
+                        }
+           
+                    .progress-bar > .bar > .value > .loading-part > .text-value {
+                        display: inline-block;
+                        font-weight: bold;
+                        float: right;
+                        padding-top: 12px;
+                        padding-right: 5px;
+                        font-size: 14px;
+                    }
 
-
+@keyframes progress_bar_loading {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
 
 
 
