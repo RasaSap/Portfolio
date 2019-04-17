@@ -1,7 +1,13 @@
 "use strict";
 
 /* HEADER */
-
+function stickToTop() {
+    if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  }
 
 
 /* HERO */
@@ -88,7 +94,6 @@ function renderSkills( data ){
                             <div class="text-value">'+data[i].value+'%</div>\
                         </div>\
                      </div>\
-                </div>\
             </div>';
 }
     return HTML;
@@ -96,11 +101,191 @@ function renderSkills( data ){
 
 /* LATEST WORKS */
 
+function renderWorks( data ) {
+    var HTML = '',
+        filter_HTML = '',
+        items_HTML = '';
+    if ( !Array.isArray(data) || data.length === 0 ){
+        return HTML;
+    }
+
+    for ( var i=0; i<data.length; i++ ) {
+        if ( true ) {
+            filter_HTML += '<div class="">\
+                                Filter-'+i+'\
+                            </div>';
+        }
+    }
+
+    for ( var i=0; i<data.length; i++ ) {
+        items_HTML += '<div class="item" style="background-image: url(img/works/'+data[i].img+');">\
+                        <div class="background">\
+                            <div class="texts">\
+                                <h4>'+data[i].title+'</h4>\
+                                <span>'+data[i].categories+'</span>\
+                            </div>\
+                        </div>\
+                    </div>';
+    }
+
+    HTML += '<div class="gallery">\
+                <div class="filter">\
+                    <div class="">All</div>\
+                    '+filter_HTML+'\
+                </div>\
+                <div class="item-list">\
+                    '+items_HTML+'\
+                </div>\
+            </div>';
+
+    return HTML;
+}
 
 
 /* JOB HISTORY */
+/**
+ * Rendering list of job history
+ * @param {array} data - list of objects {title}
+ * @returns {string} HTML of job history boxes
+ */
+function renderHistory( data ){
+    var HTML = '',
+        date_to = '',
+        date_from = '';
+
+    if ( !Array.isArray(data) || data.length === 0 ){
+        return HTML;
+    }
+
+    for ( var i=0; i<data.length; i++) {
+        if ( !data[i].title ||
+            typeof(data[i].title) !== 'string' ||
+            data[i].title.length < 1 ||
+            data[i].title.length > 30 ||
+            typeof(data[i].p) !== 'string' ||
+            data[i].p.length < 1 ||
+            data[i].p.length > 140 ||
+            typeof(data[i].date_from) !== 'string' ||
+            data[i].date_from.length !== 10 ) {
+           
+           continue;
+    }
+
+    date_from = dateConverter( data[i].date_from );
+    date_to = dateConverter( data[i].date_to );
+        if ( date_to === '' ) {
+            date_to = 'Present';
+        }
+
+    HTML += '<div class="job-box">\
+                <div class="content">\
+                    <div class="top-section">\
+                        <div class="top-left">\
+                            <h4> '+data[i].title+' </h4>\
+                            <p>'+data[i].address+'</p>\
+                        </div>\
+                        <div class="btn-right">\
+                            <a href="#" class="btn" style= "float: right">'+ date_from +' to '+ date_to +'</a>\
+                        </div>\
+                    </div>\
+                    <div class="bottom-section">\
+                        <p>'+data[i].p+'</p>\
+                    </div>\
+                </div>\
+            </div>';
+}
+    return HTML;
+}
+
+function dateConverter( date ){
+    var formated = '',
+    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    values = date.split("-");
+
+    if ( typeof(date) !== 'string' ||
+        date === '') {
+            return formated;
+        }
+
+    values[1] = parseInt(values[1]) - 1;
+
+    formated = months[ values[1] ] + '\'' + values[2];
+
+    return formated;
+}
 
 
+/* SERVICE OFFERS */
+function renderService( data ) {
+    var HTML = '',
+        good_ones = 0;
+    
+    if ( !Array.isArray(data) || data.length === 0 ) {
+        return HTML;
+    }
+
+    for ( var i=0; i<data.length; i++ ) {
+        // tikriname ar yra reikiamos reiksmes objekte
+        if ( !data[i].icon ||
+             typeof(data[i].icon) !== 'string' ||
+             data[i].icon.length < 1 ||
+             !data[i].title ||
+             typeof(data[i].title) !== 'string' ||
+             data[i].title.length < 1 ) {
+            continue;
+        }
+        // tikriname ar nevirsijome leistimu sugeneruoti elementu skaiciaus
+        if ( good_ones >= 4 ) {
+            break;
+        }
+       
+        HTML += '<div class="offer_card">\
+                    <i class="fa fa-'+data[i].icon+'"></i>\
+                    <h4 class="job_title">'+data[i].title+'</h4>\
+                    <p>If you are looking blank casvsettes on the web, you may confuse.</p>\
+                </div>';
+        good_ones++;
+    }
+    return HTML;
+}
+
+/* SKILLS */
+/**
+ * Rendering list of progress bars
+ * @param {array} data - list of objects, contains {title, value}
+ * @returns {string} HTML of progress bars
+ */
+function renderSkills( data ){
+    var HTML = '';
+    if ( !Array.isArray(data) || data.length === 0 ){
+        return HTML;
+    }
+
+    for ( var i=0; i<data.length; i++) {
+        if ( !data[i].title ||
+            typeof(data[i].title) !== 'string' ||
+            data[i].title.length < 1 ||
+            data[i].title.length > 30 ||
+            !data[i].value ||
+            typeof(data[i].value) !== 'number' ||
+            data[i].value < 0 ||
+            data[i].value > 100 ) {
+           continue;
+    }
+    HTML += '<div class="progress-bar">\
+                <div class="title">'+data[i].title+'</div>\
+                <div class="bar">\
+                    <div class="value" style="width: '+data[i].value+'%;">\
+                        <div class="loading-part">\
+                            <div class="vertical-line"></div>\
+                            <div class="text-value">'+data[i].value+'%</div>\
+                        </div>\
+                     </div>\
+            </div>';
+}    
+    
+    return HTML;
+}
 
 /* TESTIMONIALS */
 
@@ -114,4 +299,4 @@ function renderSkills( data ){
 
 
 
-/* BACKT TO TOP */
+/* BACK TO TOP */

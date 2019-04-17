@@ -2,6 +2,7 @@
     --color-primary: #E45447;
     --color-secondary: #90ACD1;
     --color-secondary-light: #F9F9FF;
+    --color-black: #222;
 }
 
 body,
@@ -11,6 +12,11 @@ body * {
     vertical-align: top;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body > * {
+    display: inline-block;
+    width: 100%;
 }
 
 .container {
@@ -44,6 +50,8 @@ body * {
     display: inline-block;
     width: 100%;
     margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
     .block-title > h2 {
         display: inline-block;
@@ -90,19 +98,131 @@ body * {
 .bg-red {
     background-color: var(--color-primary);
 }
+
 /* HEADER */
 
+body {
+    position: relative;
+}
+body > header {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+#header > .container {
+    padding: 10px 0;
+}
+#header a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+    #header a > img {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+#header .menu {
+    display: inline-block;
+    float: right;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 0 4px var(--color-black);
+    transition: 0.3s ease-in-out;
+    z-index: 1;
+}
 
 
 /* HERO */
 
+#hero {
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+}
+    #hero > .secondary-color-hero-background {
+        display: inline-block;
+        float:left;
+        background-color: var(--color-secondary);
+        /* width: calc(50% - 200px); */
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: calc(50% + 200px);
+        bottom: 0;
+        /* An element with greater stack order is always in front of an element with a lower stack order. / only works on positioned elements (position: absolute, relative, fixed or sticky). */
+        z-index: -1;
+    }
 
+    #hero > .secondary-color-hero-background > .circle {
+        display: inline-block;
+        background-color: var(--color-secondary);
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        position: absolute;
+        top: 37%;
+        left: -150px;
+        bottom: 0;
+    }
+
+        #hero > .container {
+            padding: 110px 0 0 0;
+        }
+        
+        #hero .hero-content {
+            display: inline-block;
+            float: left;
+            width: 40%;
+        }
+        #hero img {
+            display: inline-block;
+            float: right;
+            width: 40%;
+        }
 
 /* CLIENT LOGOS */
+#clients > .container {
+    padding: 0;
+}
+    #clients .images {
+        display: inline-block;
+        margin-left: calc(50% - 500px);
+        width: 1000px;
+        background: #FFF;
+        box-shadow: 0px 20px 50px rgba(153, 153, 153, 0.2);
+        border-radius: 100px;
+        border: 1px solid rgba(214, 214, 214, 0.11);
+        padding: 60px 14px;
+        margin-top: -80px;
+        position: relative;
+        text-align: center;
+    }
+        #clients .images > img {
+            padding: 10px 20px;
 
-
-
+        }
 /* ABOUT MYSELF */
+.img-myself{
+    display: inline-block;
+    width: 50%;
+    float: left;
+    height: auto;
+}
+
+.block-right{
+    display: inline-block;
+    width: 50%;
+    float: right;
+
+}
 
 
 
@@ -258,6 +378,154 @@ body * {
 
 /* JOB HISTORY */
 
+#job_history{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+    #job_history > .container > .block-title {
+        margin-bottom: 50px;
+    }
+        #job_history > .container > .block-title > p {
+            display: block;
+            color: #777;
+            max-width: 535px;
+            margin-top: 20px;    
+        }
+   
+            .job-box {
+                display: inline-block;
+                background-color: var(--color-secondary-light);
+                padding: 40px 30px;
+                border-radius: 20px;
+                margin: 0 15px 30px 15px;
+                color: #777;
+            }
+
+                .job-box > .content {
+                    display: inline-block;
+                    width: 405px; 
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+                    #history > .job-box > .content > .top-section > .top-left {
+                        display: inline-block;   
+                        float: left;
+     
+                    }
+
+                        #history > .job-box > .content > .top-section > .top-left > p{
+                        color: inherit;
+                        }
+
+
+                    #history > .job-box > .content > .top-section > btn-right {
+                        display: inline-block; 
+                        float: right; 
+                    }
+
+                    #history > .job-box > .content > .bottom-section {
+                        display: inline-block;
+                        float: left;
+                        width: 100%;
+                    }
+
+                        #history >  .job-box > .content > .bottom-section > p{
+                            color: inherit;   
+                        }
+                        .job-box:hover{
+                            background-color: var(--color-secondary);
+                            cursor: pointer;
+                            color: #FFF;   
+                        }
+
+                        @media ( max-width: 1100px ) {
+                            #job_history .job-box {
+                                margin: 40px calc( (100% - 540px) / 2 ) 20px;
+                            }
+                        }
+                        @media ( max-width: 640px ) {
+                            #content .job-box {
+                                width: 100%;
+                                margin: 20px 0 15px;
+                            }
+                                
+                        }
+
+/* SERVICE OFFERS */
+
+.gallery {
+    display: inline-block;
+    width: 100%;
+}
+
+#service_offers{
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+        }
+                        
+        #service_offers > .container > .block-title {
+            margin-bottom: 50px;
+        }
+             #service_offers > .container > .block-title > p {
+                    display: block;
+                    color: #777;
+                    max-width: 535px;
+                    margin-top: 20px;    
+                    }
+
+         #service_cards {
+            display: inline-block;
+            width: 100%;
+                    }  
+
+            #service_cards > .offer_card {
+                display: inline-block;
+                float: left;
+                margin-right: 30px;
+                width: calc( (100% - 3*30px) / 4 );
+                padding: 60px 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                text-align: center;
+                background-color: var(--color-secondary-light);
+                word-break: break-word;
+             }
+
+             #service_cards > .offer_card > i {
+                display: inline-block;
+                width: 80px;
+                height: 80px;
+                margin-bottom: 15px;
+                line-height: 80px;
+                font-size: 32px;
+                background-color: #DFE6F4;
+                color: #585A5C;
+                border: 2px solid var(--color-secondary);
+                border-radius: 50%;
+             }
+             #service_cards > .offer_card > h4 {
+                display: inline-block;
+                width: 100%;
+                line-height: 40px;
+                font-size: 18px;
+                margin-bottom: 15px;
+               
+            }
+            #service_cards > .offer_card > p {
+                display: inline-block;
+                width: 100%;
+                line-height: 28px;
+                font-size: 14px;
+                color: #777;
+            }
+            #service_cards > .offer_card:last-child {
+                margin-right: 0;
+            }
 
 
 /* TESTIMONIALS */
@@ -266,10 +534,94 @@ body * {
 
 /* CONTACT ME */
 
+.container > p {
+    max-width: 570px;
+    text-align: center;
+    margin: 25px auto;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 0;
+}
+.container > .contacts {
+    display: inline-block;
+    width: 100%;
+    float: left;
+}
+.container > .contacts > div {
+    display: inline-block;
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin: 30px 0;
+}
+.contact_me_btn {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+}
 
 
 /* FOOTER */
+#footer > .container > .footer-top {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}  
+    #footer > .container >.footer-top > h3 {
+        margin: 40px 0;
+        color: grey;
+    }  
+
+        #footer > .container > .footer-top > .social > a {
+            font-size: 35px;
+            line-height: 36px;
+            padding: 0 20px;
+            color: lightgray;
+            transition: 2s;
+            text-decoration: none;
+        }
+
+            #footer > .container >.footer-top > .social > a:hover {
+                color: red;
+                transition: 2s;
+            }
 
 
+            #footer > .container > .footer-bottom {
+                display: inline-block;
+                text-align: center;
+                float: left;
+                width: 100%;
+                font-size: 12px;
+                color: #777;
+                padding-top: 35px;
+            }
+            #footer > .container >.footer-bottom > p > a {
+                color: red;
+            }
 
-/* BACKT TO TOP */
+
+/* BACK TO TOP */
+#footer #back-to-top{
+   font-size: 30px;
+   width: 40px;
+   height: 50px;
+   padding: 10px 5px;
+   line-height: 35px;
+   color: #FFF;
+   background-color: lightskyblue;
+   border-radius: 15% 15% 0 0;
+   position: fixed;
+   bottom: 40px;
+   right: 30px;
+}
+
+#footer #back-to-top :hover{
+   box-shadow: 0px 5px 5px (0, 0, 0, 2);
+   cursor: pointer;
+}

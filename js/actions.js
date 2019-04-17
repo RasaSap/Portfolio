@@ -1,7 +1,14 @@
 "use strict";
 
 /* HEADER */
+window.onscroll = function() {stickToTop()};
 
+
+$('#header .menu').click(function(){
+    console.log('pirmas mano kartas :)');
+    console.log('su jumis... :D');
+    
+});
 
 
 /* HERO */
@@ -25,12 +32,14 @@ document.getElementById('skills_progress_bars').innerHTML = renderSkills( skills
 
 
 /* LATEST WORKS */
-
+document.getElementById('latest_works').innerHTML = renderHistory( works );
 
 
 /* JOB HISTORY */
+document.getElementById('history').innerHTML = renderHistory( jobs);
 
-
+/* SERVICE OFFERS */
+document.getElementById('service_cards').innerHTML = renderService( service);
 
 /* TESTIMONIALS */
 
