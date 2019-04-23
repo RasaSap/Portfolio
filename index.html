@@ -11,16 +11,22 @@
 </head>
 <body>
     
-     <header id="header">
+    <header id="header">
         <div class="container">
-        <a href="#">
-            <img src="img/Logo.png" alt="">
-        </a>
-        <div class="menu">
-            Menu
+            <a href="#">
+                <img src="img/Logo.png" alt="">
+            </a>
+            <span class="menu" onclick="openNav()">&#9776</span>
         </div>
-      </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
     </header>
+
 
     <div id="hero">
             <div class="secondary-color-hero-background">
@@ -28,10 +34,10 @@
             </div>
             <div class="container">
                 <div class="hero-content">
-                    <p>It's me</p>
+                    <div class="me">It's me</div>
                     <h1>Kareem EzZat</h1>
-                    <p>Senior Creative Designer and Content Developer</p>
-                    <a href="#" class="btn">Hire Me</a>
+                    <p>Senior Creative <span class="designer">Designer</span> and Content <span class="developer">Developer</span></p>
+                    <a href="#" class="btn btn-red">Hire Me</a>
                 </div>
                 <img src="img/banner-img.png" alt="">
             </div>
@@ -49,24 +55,24 @@
         </div>
     </div>
 
-    <div id="about_me">
-        <div class="container">
-            <div class="img-myself"
+    <div id="about_me" class="container">
+            
             <img src="img/myself.png" alt="">
-            </div>
-        <div class="block-right">
-            <div class="block-title">
-                <h2>About Myself</h2>
-                <div class="line"></div>
-            </div>
+            
+    
+            <div class="block-right">
+                <div class="block-title">
+                    <h2>About Myself</h2>
+                    <div class="line"></div>
+                </div>
                 <p>I’m a Front End Developer. I have a Passion for Creating Clean, Beautiful, Interactive, Minimalistic, Responsive and User Friendly UI, Developed by Modular, Scalable and Functional Code. When, while the lovely valley teems with vapour around me.</p>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <a href="#" class="btn">More Info</a>
-                <a href="#" class="btn" class="btn-red">Resume</a>
+                <a href="#" class="btn btn-blue">More Info</a>
+                <a href="#" class="btn btn-red">Resume</a>
             
-        </div>
-        </div>
+            </div>
     </div>
+    
 
 
     <div id="statistics" class="bg-light-grey">
@@ -156,12 +162,12 @@
                 <div class="line"></div>
                 <p>It is a long established fact a reader will be distracted by the readable content of a page when looking at its layout.</p>
             </div>
-            <div id="service_cards">
+            <div id="offers" class="cards-list">
 
         <!-- <div class="offer_card">
                     <i class="fa fa-diamond"></i>
                     <h4 class="job_title">Web Design</h4>
-                    <p>If you're looking blank casvsettes on the web, you may confuse.</p>
+                    <p>"If you're looking blank casvsettes on the web, you may confuse."</p>
                 </div> -->
 
             </div>
@@ -213,11 +219,8 @@
                 <div class="footer-bottom">
                     <p>Copyright &copy; All rights reserved | KARMEN is made with <i class="fa fa-heart-o"></i> by <a href="#">KarimEzZat</a></p>
                 </div> 
-                <div id="back-to-top"
-                <a href="#">
-                        <i class="fa fa-arrow-up"></i>
-                </a>
-            </div> 
+                <button onclick="topFunction()" id="back-to-top" class="fa fa-arrow-up" title="Go to top">
+                </button> 
             </div>
         </footer>
 

@@ -4,13 +4,17 @@
 window.onscroll = function() {stickToTop()};
 
 
-$('#header .menu').click(function(){
+/*$('#header .container .menu').click(function(){
     console.log('pirmas mano kartas :)');
-    console.log('su jumis... :D');
-    
-});
+    console.log('su jumis... :D');   
+});*/
+
+/*$('#header .menu').click(function(){openNav()});*/
 
 
+
+/*$('#header .menu).click(function() {
+    console.log('pirmas mano kartas :)')});*/
 /* HERO */
 
 
@@ -25,21 +29,22 @@ $('#header .menu').click(function(){
 
 /* STATISTICS and SERVICE OFFERS */
 document.getElementById('statistics_cards').innerHTML = renderCards( statistics );
-
+/* SERVICE OFFERS */
+// document.getElementById('offers').innerHTML = renderCards( offers );
+$('#offers').html( renderCards( offers ) );
 
 /* SKILLS */
 document.getElementById('skills_progress_bars').innerHTML = renderSkills( skills);
 
 
 /* LATEST WORKS */
-document.getElementById('latest_works').innerHTML = renderHistory( works );
+document.getElementById('latest_works').innerHTML = renderWorks( works );
 
 
 /* JOB HISTORY */
 document.getElementById('history').innerHTML = renderHistory( jobs);
 
-/* SERVICE OFFERS */
-document.getElementById('service_cards').innerHTML = renderService( service);
+
 
 /* TESTIMONIALS */
 
@@ -53,4 +58,5 @@ document.getElementById('service_cards').innerHTML = renderService( service);
 
 
 
-/* BACKT TO TOP */
+/* BACk TO TOP */
+window.onscroll = function() {scrollFunction()};

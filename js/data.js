@@ -4,6 +4,7 @@
 var header = document.getElementById("header");
 var sticky = header.offsetTop;
 
+
 /* HERO */
 
 
@@ -37,6 +38,29 @@ var statistics = [
         icon: 'smile-o',
         number: 750,
         title: 'Happy clients'
+    }
+];
+
+var offers = [
+    {
+        icon: 'diamond',
+        title: 'Web Design',
+        p: 'If you’re looking blank casvsettes on the web, you may confuse.'   
+    },
+    {
+        icon: 'bar-chart',
+        title: 'App Development',
+        p: 'If you’re looking blank casvsettes on the web, you may confuse.'
+    },
+    {
+        icon: 'lightbulb-o',
+        title: 'Web Development',
+        p: 'If you’re looking blank casvsettes on the web, you may confuse.'
+    },
+    {
+        icon: 'tachometer',
+        title: 'Web Development',
+        p: 'If you’re looking blank casvsettes on the web, you may confuse.'
     }
 ];
 
@@ -128,26 +152,6 @@ var jobs  = [
         date_from : '2018-06-15',
         date_to : ''
     },
-];
-
-/* SERVICE OFFERS */
-var service = [
-    {
-        icon: 'diamond',
-        title: 'Web Design'    
-    },
-    {
-        icon: 'bar-chart',
-        title: 'App Development'
-    },
-    {
-        icon: 'lightbulb-o',
-        title: 'Web Development'
-    },
-    {
-        icon: 'tachometer',
-        title: 'Web Development'
-    }
 ];
 
 

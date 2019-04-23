@@ -2,13 +2,20 @@
 
 /* HEADER */
 function stickToTop() {
-    if (window.pageYOffset > sticky) {
+    if (window.pageYOffset > 100 ) {
       header.classList.add("sticky");
     } else {
       header.classList.remove("sticky");
     }
   }
 
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
 
 /* HERO */
 
@@ -41,8 +48,6 @@ function renderCards( data ) {
         if ( !data[i].icon ||
              typeof(data[i].icon) !== 'string' ||
              data[i].icon.length < 1 ||
-             !data[i].number ||
-             (''+data[i].number).length > 9 ||
              !data[i].title ||
              typeof(data[i].title) !== 'string' ||
              data[i].title.length < 1 ) {
@@ -52,12 +57,22 @@ function renderCards( data ) {
         if ( good_ones >= 4 ) {
             break;
         }
-        HTML += '<div class="card">\
-                    <i class="fa fa-'+data[i].icon+'"></i>\
-                    <div class="number">'+data[i].number+'</div>\
-                    <div class="title">'+data[i].title+'</div>\
-                </div>';
-        good_ones++;
+        if ( data[i].number ){
+            HTML += '<div class="card">\
+                        <i class="fa fa-'+data[i].icon+'"></i>\
+                        <div class="number">'+data[i].number+'</div>\
+                        <div class="title">'+data[i].title+'</div>\
+                    </div>';
+            good_ones++;
+        }
+        if ( data[i].p ){
+            HTML += '<div class="card">\
+                        <i class="fa fa-'+data[i].icon+'"></i>\
+                        <div class="title">'+data[i].title+'</div>\
+                        <div class="p">'+data[i].p+'</div>\
+                    </div>';
+            good_ones++;
+        }
     }
     return HTML;
 }
@@ -169,6 +184,7 @@ function renderHistory( data ){
             data[i].date_from.length !== 10 ) {
            
            continue;
+            
     }
 
     date_from = dateConverter( data[i].date_from );
@@ -215,39 +231,6 @@ function dateConverter( date ){
 }
 
 
-/* SERVICE OFFERS */
-function renderService( data ) {
-    var HTML = '',
-        good_ones = 0;
-    
-    if ( !Array.isArray(data) || data.length === 0 ) {
-        return HTML;
-    }
-
-    for ( var i=0; i<data.length; i++ ) {
-        // tikriname ar yra reikiamos reiksmes objekte
-        if ( !data[i].icon ||
-             typeof(data[i].icon) !== 'string' ||
-             data[i].icon.length < 1 ||
-             !data[i].title ||
-             typeof(data[i].title) !== 'string' ||
-             data[i].title.length < 1 ) {
-            continue;
-        }
-        // tikriname ar nevirsijome leistimu sugeneruoti elementu skaiciaus
-        if ( good_ones >= 4 ) {
-            break;
-        }
-       
-        HTML += '<div class="offer_card">\
-                    <i class="fa fa-'+data[i].icon+'"></i>\
-                    <h4 class="job_title">'+data[i].title+'</h4>\
-                    <p>If you are looking blank casvsettes on the web, you may confuse.</p>\
-                </div>';
-        good_ones++;
-    }
-    return HTML;
-}
 
 /* SKILLS */
 /**
@@ -300,3 +283,16 @@ function renderSkills( data ){
 
 
 /* BACK TO TOP */
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("back-to-top").style.display = "block";
+    } else {
+      document.getElementById("back-to-top").style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
