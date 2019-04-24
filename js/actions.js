@@ -1,7 +1,7 @@
 "use strict";
 
 /* HEADER */
-window.onscroll = function() {stickToTop()};
+window.onscroll = function() {stickToTop(); scrollFunction()};
 
 
 /*$('#header .container .menu').click(function(){
@@ -59,4 +59,4 @@ document.getElementById('history').innerHTML = renderHistory( jobs);
 
 
 /* BACk TO TOP */
-window.onscroll = function() {scrollFunction()};
+// window.onscroll = function() {scrollFunction()};
